@@ -1,0 +1,45 @@
+buildscript {
+    ext.kotlin_version = '1.2.31'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+group 'nl.markv.ungrammarify'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'kotlin2js'
+//apply plugin: 'application'
+
+//mainClassName = "nl.markv.ungrammarify.Main"
+
+compileKotlin2Js {
+    kotlinOptions {
+        metaInfo = true
+        outputFile = "$project.buildDir.path/js/${project.name}.js"
+        sourceMap = true
+        moduleKind = 'commonjs'
+        main = "call"
+    }
+}
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.1"
+}

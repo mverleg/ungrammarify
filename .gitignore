@@ -1,0 +1,11 @@
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+build/
+out/
+lib/
+node_modules/
+.idea/
+*.iml
+
