@@ -17,6 +17,9 @@ This is probably an incomplete list:
 * Irregular verbs
 * Reduce distinction between verbs and nouns somehow?
 * Conjunctions?
+* Remove "s" less greedily, e.g. "victorious"
+* Remove "ed" less greedily, e.g. "interested"
+* Remove "d" less greedily, e.g. "die"
 
 Installation
 -------------------------------
