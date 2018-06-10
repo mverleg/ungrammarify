@@ -1,7 +1,27 @@
 
-#editor {
-	max-width: 800px;
-	min-height: 600px;
-	border: 1px solid green;
+body {
+	background-color: rgb(32, 32, 32);
+	margin: 0;
+	padding: 0;
+	font-family: helvica, sans-serif;
 }
 
+main {
+	max-width: 1000px;
+	color: white;
+	margin: 1em auto;
+}
+
+#editor, #output {
+	position: relative;
+	min-height: 400px;
+}
+
+#ungrammarify_btn {
+	display: block;
+	margin: 1em 0;
+	padding: 0.5em;
+	text-align: center;
+	background-color: maroon;
+	cursor: pointer;
+}
