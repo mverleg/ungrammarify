@@ -5,7 +5,7 @@ requirejs.config({
     baseUrl: "./",
     paths: {
         ace: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3',
-        twilight: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/theme-twilight',
+        // twilight: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/theme-twilight',
         kotlin: 'page/kotlin',
         ungrammarify: 'page/ungrammarify',
     }

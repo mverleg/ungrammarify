@@ -2,6 +2,8 @@
 Ungrammarify
 ===============================
 
+Try it out! https://mverleg.github.io/ungrammarify/
+
 This package attempts to remove grammar from an English text, to see whether the text is understandable from the words alone.
 
 What that really means is probably up for debate, but what it effectively does is changing the word order, removing conjugations and plurals, and stripping most interpunction and caps.
