@@ -5,6 +5,7 @@ requirejs.config({
     baseUrl: "./",
     paths: {
         ace: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3',
+        twilight: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/theme-twilight',
         kotlin: 'page/kotlin',
         ungrammarify: 'page/ungrammarify',
     }
@@ -56,30 +57,24 @@ requirejs(["ace/ace", "ungrammarify"], function (ace, ungrammarify) {
     /* Input */
     editor = ace.edit("editor", {
         mode: "ace/mode/text",
-        selectionStyle: "text"
-    });
-
-    editor.setOptions({
+        theme: "ace/theme/twilight",
+        selectionStyle: "text",
         autoScrollEditorIntoView: true,
         copyWithEmptySelection: true,
         highlightActiveLine: true,
-        showPrintMargin: false,
-        theme: "ace/theme/twilight"
+        showPrintMargin: false
     });
     editor.session.setUseWrapMode(true);
 
     /* Output */
     output = ace.edit("output", {
         mode: "ace/mode/text",
-        selectionStyle: "text"
-    });
-
-    output.setOptions({
+        theme: "ace/theme/twilight",
+        selectionStyle: "text",
         autoScrollEditorIntoView: true,
         copyWithEmptySelection: true,
         highlightActiveLine: true,
-        showPrintMargin: false,
-        theme: "ace/theme/twilight"
+        showPrintMargin: false
     });
     output.session.setUseWrapMode(true);
     output.setReadOnly(true);
@@ -90,6 +85,6 @@ requirejs(["ace/ace", "ungrammarify"], function (ace, ungrammarify) {
 
 /* Add button logic. */
 document.getElementById("ungrammarify_btn").addEventListener("click", function(e) {
-    // This needs the Ace editors to have been initialized.
+    // This needs the Ace editors and Kotlin to have been initialized.
     ungrammarify_action();
 }, false);

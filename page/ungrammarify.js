@@ -156,7 +156,7 @@ define(['exports', 'kotlin'], function (_, Kotlin) {
     while (tmp$_0.hasNext()) {
       var item_0 = tmp$_0.next();
       var tmp$_1;
-      destination_0.add_11rb$(((tmp$_0_0 = index, index = tmp$_0_0 + 1 | 0, tmp$_0_0) + 1 | 0) * item_0 % (typeof (tmp$_1 = 37) === 'number' ? tmp$_1 : throwCCE()));
+      destination_0.add_11rb$(((tmp$_0_0 = index, index = tmp$_0_0 + 1 | 0, tmp$_0_0) + 1 | 0) * item_0 % (typeof (tmp$_1 = 137) === 'number' ? tmp$_1 : throwCCE()));
     }
     return sum(destination_0);
   };
