@@ -1,5 +1,5 @@
 package nl.markv.ungrammarify
 
-public interface Text {
-    public fun text(): CharSequence;
+interface Text {
+    fun text(): CharSequence;
 }

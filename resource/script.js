@@ -5,6 +5,17 @@
 
     let editor = null, output = null;
 
+    // TODO:
+    // console.log(JSON.stringify(window));
+    console.log(window);
+    // console.log(exports);
+    // console.log(module.nl);
+    console.log(require('nl.markv.ungrammarify'));
+
+    // /TODO
+
+    const ungrammarify = nl.markv.ungrammarify.MainKt.ungrammarify_qDdrSA;
+
     function show_user_warning(msg) {
         console.error(msg);
         let popup = document.createElement('p');
@@ -21,7 +32,7 @@
             show_user_warning("Cannot ungrammarify now, the editor has not been loaded (yet).");
             return;
         }
-        output.setValue(editor.getValue());
+        output.setValue(ungrammarify(editor.getValue()));
     }
 
     require(["ace/ace"], function (ace) {
