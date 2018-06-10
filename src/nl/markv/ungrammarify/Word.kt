@@ -15,7 +15,9 @@ class Word(text: String): Text {
         if (!tx.endsWith("is") && !tx.endsWith("os") && !tx.endsWith("us")) {
             tx = tx.removeSuffix("s")
         }
-        tx = tx.removeSuffix("ing")
+        if (tx.length > 5) {
+            tx = tx.removeSuffix("ing")
+        }
         word = tx;
     }
 

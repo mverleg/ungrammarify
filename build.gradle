@@ -13,26 +13,35 @@ group 'nl.markv.ungrammarify'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'kotlin2js'
-//apply plugin: 'application'
-
-//mainClassName = "nl.markv.ungrammarify.Main"
-
-compileKotlin2Js {
-    kotlinOptions {
-        metaInfo = true
-        outputFile = "$project.buildDir.path/js/${project.name}.js"
-        sourceMap = true
-        moduleKind = 'commonjs'
-        main = "call"
-    }
-}
-
-sourceSets {
-    main.kotlin.srcDirs += 'src/'
-}
 
 repositories {
     mavenCentral()
+}
+
+compileKotlin2Js {
+    kotlinOptions {
+        outputFile = "$project.buildDir.path/js/${project.name}.js"
+        moduleKind = "amd"
+    }
+}
+
+//task combinePageIndex(type: Copy) {
+//    from file("resource/index.html")
+//    into "."
+//}
+
+task combinePage(type: Copy) {
+//    from file("resource/style.css")
+    from file("node_modules/kotlin/kotlin.js")
+    from file("$project.buildDir.path/js/${project.name}.js")
+    into "page"
+}
+
+combinePage.dependsOn build
+//combinePage.dependsOn combinePageIndex
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/'
 }
 
 dependencies {
@@ -41,5 +50,5 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "4.1"
+    gradleVersion = "4.7"
 }
