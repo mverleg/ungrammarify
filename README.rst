@@ -22,6 +22,7 @@ This is probably an incomplete list:
 * Remove "s" less greedily, e.g. "victorious"
 * Remove "ed" less greedily, e.g. "interested"
 * Remove "d" less greedily, e.g. "die"
+* Should question marks be kept?
 
 Installation
 -------------------------------
