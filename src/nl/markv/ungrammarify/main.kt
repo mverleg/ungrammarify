@@ -46,6 +46,6 @@ package nl.markv.ungrammarify
 ////    ).text())
 //}
 
-public fun ungrammarify_qDdrSA(text: String): String {
+public fun ungrammarify(text: String): String {
     return Article(text).text().toString()
 }

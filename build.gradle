@@ -3,40 +3,40 @@ buildscript {
 
     repositories {
         mavenCentral()
-        maven {
-            url "https://dl.bintray.com/kotlin/kotlin-eap"
-        }
+//        maven {
+//            url "https://dl.bintray.com/kotlin/kotlin-eap"
+//        }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.30"
+//        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.30"
     }
 }
 
 group 'nl.markv.ungrammarify'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'org.jetbrains.kotlin.frontend'
+//apply plugin: 'org.jetbrains.kotlin.frontend'
 apply plugin: 'kotlin2js'
 
 repositories {
     mavenCentral()
 }
 
-kotlinFrontend {
-    webpackBundle {
-        bundleName = "main"
-//        minimize = true
-    }
-}
+//kotlinFrontend {
+//    webpackBundle {
+//        bundleName = "main"
+////        minimize = true
+//    }
+//}
 
 compileKotlin2Js {
     kotlinOptions {
         metaInfo = true
         sourceMap = true
-        outputFile = "$project.buildDir.path/js/${project.name}.js"
-        moduleKind = 'commonjs'
-        main = "call"
+        outputFile = "$project.buildDir.path/js/ungrammarify.js"
+        moduleKind = 'amd'
+        main = 'call'
     }
 }
 
@@ -48,7 +48,8 @@ compileKotlin2Js {
 task combinePage(type: Copy) {
 //    from file("resource/style.css")
     from file("node_modules/kotlin/kotlin.js")
-    from file("$project.buildDir.path/bundle/main.bundle.js")
+    from file("$project.buildDir.path/js/ungrammarify.js")
+//    from file("$project.buildDir.path/bundle/main.bundle.js")
     into "page"
 }
 

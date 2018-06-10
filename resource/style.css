@@ -35,7 +35,7 @@ main a {
 	top: 2em;
 	left: 10%;
 	right: 10%;
-	padding: 1em;
+	padding: 1em 1.5em;
 	background-color: lightcoral;
 	color: black;
 	z-index: 1000;
