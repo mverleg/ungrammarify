@@ -21,7 +21,7 @@ repositories {
 compileKotlin2Js {
     kotlinOptions {
         outputFile = "$project.buildDir.path/js/${project.name}.js"
-        moduleKind = "amd"
+        moduleKind = "plain"
     }
 }
 

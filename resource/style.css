@@ -12,6 +12,10 @@ main {
 	margin: 1em auto;
 }
 
+main a {
+	color: white;
+}
+
 #editor, #output {
 	position: relative;
 	min-height: 400px;
@@ -24,4 +28,16 @@ main {
 	text-align: center;
 	background-color: maroon;
 	cursor: pointer;
+}
+
+.user_warning_popup {
+	position: absolute;
+	top: 2em;
+	left: 10%;
+	right: 10%;
+	padding: 1em;
+	background-color: lightcoral;
+	color: black;
+	z-index: 1000;
+	border-radius: 1em;
 }
