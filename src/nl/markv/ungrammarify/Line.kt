@@ -8,7 +8,7 @@ class Line(text: String): Text {
         line = Regex("\\s+").split(text.decapitalize())
                 .map{ Word(it) }
                 .toTypedArray()
-                .sortedBy{ it.hashCode() }
+                .sortedBy{ it.hash() }
     }
 
     override fun text(): CharSequence {

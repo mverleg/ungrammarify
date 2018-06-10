@@ -18,10 +18,19 @@ class Word(text: String): Text {
         if (tx.length > 5) {
             tx = tx.removeSuffix("ing")
         }
+        if (tx == "i") {
+            tx = "I"
+        }
         word = tx;
     }
 
     override fun text(): CharSequence {
         return word
+    }
+
+    fun hash(): Int {
+        return word.map{ it.toShort() }
+                .mapIndexed{ i, chr -> ((i + 1) * chr) % 137 as Int }
+                .sum()
     }
 }
