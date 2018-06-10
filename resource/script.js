@@ -4,22 +4,10 @@
 requirejs.config({
     baseUrl: "./",
     paths: {
-        ace: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace',
+        ace: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3',
         kotlin: 'page/kotlin',
         ungrammarify: 'page/ungrammarify',
     }
-});
-
-let editor = null;
-let output = null;
-let ungrammarify = null;
-
-requirejs(["ungrammarify"], function (ungrammarify) {
-    if (!ungrammarify) {
-        show_user_warning("Ungrammarify logic failed to load.");
-        return;
-    }
-    ungrammarify = ungrammarify.nl.markv.ungrammarify.ungrammarify;
 });
 
 /* Show a warning popup to the user if something goes wrong. */
@@ -31,8 +19,12 @@ function show_user_warning(msg) {
     document.body.appendChild(popup);
     setTimeout(function() {
         document.body.removeChild(popup);
-    }, 4000);
+    }, 3000);
 }
+
+let editor = null;
+let output = null;
+let do_ungrammarify = null;
 
 /* Read the text from input, ungrammarify it and add it to the output. */
 function ungrammarify_action() {
@@ -40,18 +32,26 @@ function ungrammarify_action() {
         show_user_warning("Cannot ungrammarify now, the editor has not been loaded (yet).");
         return;
     }
-    if (ungrammarify === null) {
+    if (do_ungrammarify === null) {
         show_user_warning("Cannot ungrammarify now, the ungrammarifying logic has not been loaded (yet).");
         return;
     }
-    output.setValue(ungrammarify(editor.getValue()));
+    output.setValue(do_ungrammarify(editor.getValue()));
 }
 
-requirejs(["ace"], function (ace) {
+requirejs(["ace/ace", "ungrammarify"], function (ace, ungrammarify) {
     if (!ace) {
         show_user_warning("Ace editor failed to load.");
         return;
     }
+
+    if (!ungrammarify || !ungrammarify.nl.markv.ungrammarify.do_ungrammarify) {
+        show_user_warning("Ungrammarify logic failed to load.");
+        return;
+    }
+
+    /* Bind the ungrammarify function. */
+    do_ungrammarify = ungrammarify.nl.markv.ungrammarify.do_ungrammarify;
 
     /* Input */
     editor = ace.edit("editor", {
